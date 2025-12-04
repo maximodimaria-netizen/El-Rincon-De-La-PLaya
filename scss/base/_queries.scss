@@ -1,0 +1,50 @@
+@media (max-width: 1024px) {
+    .descripcioninicio {
+        position: static;
+        margin: 20px auto;
+        width: 50%;
+        max-width: 400px;
+    }
+
+    .Inicio3 {
+        margin: 40px auto;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .imagendescripcion img,
+    .descripcion {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .testimonios-top-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .mapa-iconos-contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .iconos2 {
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .iconos {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,307 @@
+@use "../base/variables";
+
+@mixin hover-shadow($default-shadow, $hover-shadow, $duration: 0.3s) {
+  box-shadow: $default-shadow;
+
+  &:hover {
+    box-shadow: $hover-shadow;
+    transition: box-shadow $duration ease;
+  }
+}
+
+@mixin hover-scale($scale: 1.05, $duration: 0.3s) {
+  &:hover {
+    transform: scale($scale);
+    transition: transform $duration ease;
+  }
+}
+
+@mixin rounded($radius: 8px) {
+  border-radius: $radius;
+}
+
+@mixin transition($properties: all, $duration: 0.3s, $ease: ease-in-out) {
+  transition: $properties $duration $ease;
+}
+
+@mixin fade-in($duration: 0.5s) {
+  opacity: 0;
+  @include transition(opacity, $duration);
+  animation: fadeInAnim $duration forwards;
+}
+
+@keyframes fadeInAnim {
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin slide-up($distance: 20px, $duration: 0.5s) {
+  transform: translateY($distance);
+  opacity: 0;
+
+  animation: slideUpAnim $duration forwards;
+}
+
+@keyframes slideUpAnim {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+$shadow-light: rgba(5, 164, 204, 0.15) 0 2px 10px;
+$shadow-medium: rgba(5, 164, 204, 0.2) 0 4px 15px;
+$shadow-strong: rgba(5, 164, 204, 0.3) 0 4px 20px;
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.bodyinicio,
+.bodyestablecimiento,
+.bodyubicacion,
+.bodygaleria,
+.bodytestimonios {
+  background-color: variables.$color-primario;
+  @include hover-shadow(rgba(0,0,0,0.05) 0 2px 8px, rgba(0,0,0,0.1) 0 4px 12px);
+}
+
+.bodyinicio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+
+  .descripcioninicio {
+    width: 300px;
+    min-height: 200px;
+    padding: 30px;
+    background-color: variables.$color-secundario;
+    position: absolute;
+    top: 450px;
+    left: 600px;
+    z-index: 10;
+    @include rounded(10px);
+    @include hover-shadow($shadow-light, $shadow-strong);
+    @include fade-in(0.8s);
+  }
+
+  .imageninicio2 {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 10px;
+    object-fit: cover;
+    background-color: variables.$color-secundario;
+    box-shadow: 0 2px 10px variables.$color-primario-borde;
+    flex-wrap: wrap;
+    @include rounded(5px);
+    @include hover-scale(1.02);
+    @include slide-up(30px, 0.7s);
+  }
+
+  .Inicio3 {
+    width: 90%;
+    max-width: 750px;
+    padding: 50px;
+    min-height: 200px;
+    margin: 100px auto;
+    text-align: left;
+    background: variables.$color-secundario;
+    @include rounded(5px);
+    @include hover-shadow($shadow-light, $shadow-strong);
+    @include fade-in(1s);
+  }
+}
+
+.establecimiento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+
+  .imagendescripcion img {
+    max-width: 450px;
+    object-fit: cover;
+    @include rounded(10px);
+    @include hover-scale(1.03);
+    @include fade-in(0.7s);
+  }
+
+  .descripcion {
+    background: variables.$color-secundario;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    @include rounded(12px);
+    @include hover-shadow($shadow-light, $shadow-medium);
+    @include fade-in(0.8s);
+  }
+}
+
+.iconos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px;
+  max-width: 600px;
+  margin: auto;
+
+  .iconosfilas {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    .icon-row img {
+      width: 40px;
+      @include hover-scale(1.1, 0.2s);
+      @include fade-in(0.5s);
+    }
+  }
+}
+
+.mapa-iconos-contenedor {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  .maps iframe {
+    max-width: 350px;
+    height: 350px;
+    border: 0;
+    @include rounded(5px);
+    box-shadow: 0 2px 10px variables.$color-primario-borde;
+    @include fade-in(0.8s);
+    
+  }
+
+  .iconos2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .iconosubicacion img {
+      width: 55px;
+      height: 55px;
+      @include hover-scale(1.1, 0.2s);
+      @include fade-in(0.6s);
+    }
+  }
+}
+
+.testimonios-top-section {
+  display: flex;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .testimonios-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .testimonio-card {
+    display: flex;
+    gap: 15px;
+    background: variables.$color-secundario;
+    padding: 20px;
+    @include rounded(8px);
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    @include fade-in(0.7s);
+
+    img {
+      width: 60px;
+      height: 60px;
+      @include rounded(50%);
+    }
+
+    .autor-info {
+      font-weight: bold;
+      font-size: 0.9em;
+      color: #333;
+
+      .inicial {
+        background-color: variables.$color-primario-header;
+        width: 25px;
+        height: 25px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: variables.$color-secundario;
+        margin-right: 5px;
+        @include rounded(50%);
+      }
+    }
+  }
+
+  .imagen-lateral-testimonio img {
+    width: 100%;
+    @include rounded(8px);
+    box-shadow: 0 4px 15px variables.$color-primario-borde;
+    @include fade-in(0.8s);
+  }
+}
+
+.valoraciones-bottom-section {
+  max-width: 800px;
+  margin: 60px auto 80px;
+  text-align: center;
+
+  .valoraciones-score h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+    @include fade-in(0.6s);
+  }
+
+  .imgopiniones img {
+    max-width: 700px;
+    margin-top: 15px;
+    @include fade-in(0.7s);
+        box-shadow: 0 2px 10px variables.$color-primario-borde; 
+    @include rounded(8px);
+  }
+
+  .imgestrellitas img {
+    max-width: 250px;
+    margin-top: 15px;
+    @include fade-in(0.7s);
+  }
+}
+
+hr {
+  margin: 60px 0;
+  border: 1px solid #ccc;
+  @include fade-in(0.5s);
+}
+
+.navbar-toggler {
+  border-color: white;
+  @include fade-in(0.5s);
+}
+
+.carousel-inner{
+    @include rounded(8px);
+    flex: content;
+    box-shadow: 0 2px 10px variables.$color-primario-borde; 
+    padding: 5%;
+    background: variables.$color-primario;
+}

@@ -1,0 +1,48 @@
+@use "../base/variables";
+
+@mixin hover-shadow($default-shadow, $hover-shadow, $duration: 0.3s) {
+  box-shadow: $default-shadow;
+
+  &:hover {
+    box-shadow: $hover-shadow;
+    transition: box-shadow $duration ease;
+  }
+}
+
+@mixin hover-scale($scale: 1.05, $duration: 0.3s) {
+  &:hover {
+    transform: scale($scale);
+    transition: transform $duration ease;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.bodyinicio,
+.bodyestablecimiento,
+.bodyubicacion,
+.bodygaleria,
+.bodytestimonios {
+  background-color: variables.$color-primario;
+  @include hover-shadow(rgba(0,0,0,0.05) 0 2px 8px, rgba(0,0,0,0.1) 0 4px 12px);
+}
+
+.bodyinicio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+  @include hover-scale(1.01, 0.2s);
+}

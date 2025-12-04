@@ -1,0 +1,24 @@
+@use "../base/variables";
+
+.header1 {
+    background-color: variables.$color-primario-header;
+
+    .titulo {
+        background-color: variables.$color-primario-header;
+        text-align: center;
+        padding: 18px;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 12px;
+        background: rgb(255, 255, 255);
+
+        .navbar-toggler {
+            border:0cap;
+        }
+        }
+    }
+
