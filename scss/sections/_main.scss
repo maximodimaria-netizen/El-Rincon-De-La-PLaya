@@ -73,7 +73,7 @@ main {
 .bodygaleria,
 .bodytestimonios {
   background-color: variables.$color-primario;
-  @include hover-shadow(rgba(0,0,0,0.05) 0 2px 8px, rgba(0,0,0,0.1) 0 4px 12px);
+  @include hover-shadow(rgba(0, 0, 0, 0.05) 0 2px 8px, rgba(0, 0, 0, 0.1) 0 4px 12px);
 }
 
 .bodyinicio {
@@ -185,7 +185,7 @@ main {
     @include rounded(5px);
     box-shadow: 0 2px 10px variables.$color-primario-borde;
     @include fade-in(0.8s);
-    
+
   }
 
   .iconos2 {
@@ -225,7 +225,7 @@ main {
     background: variables.$color-secundario;
     padding: 20px;
     @include rounded(8px);
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
     @include fade-in(0.7s);
 
     img {
@@ -276,7 +276,7 @@ main {
     max-width: 700px;
     margin-top: 15px;
     @include fade-in(0.7s);
-        box-shadow: 0 2px 10px variables.$color-primario-borde; 
+    box-shadow: 0 2px 10px variables.$color-primario-borde;
     @include rounded(8px);
   }
 
@@ -298,10 +298,10 @@ hr {
   @include fade-in(0.5s);
 }
 
-.carousel-inner{
-    @include rounded(8px);
-    flex: content;
-    box-shadow: 0 2px 10px variables.$color-primario-borde; 
-    padding: 5%;
-    background: variables.$color-primario;
+.carousel-inner {
+  @include rounded(8px);
+  flex: content;
+  box-shadow: 0 2px 10px variables.$color-primario-borde;
+  padding: 5%;
+  background: variables.$color-primario;
 }
